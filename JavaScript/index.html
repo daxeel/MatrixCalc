@@ -1,0 +1,208 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>2by2 Matrix Calculator</title>
+<style>
+html {
+	padding: 0 auto;
+	background: url(bg.jpg);
+}
+a {
+    color: #FFBF00;
+	text-decoration: none;
+    border-bottom: 1px dashed #fff;
+}
+a:hover {
+    border-bottom: 1px dotted #fff;
+}
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    text-align: center;
+}
+h3 {
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    color: #fff026;
+    text-align: center;
+    font-weight: bold;
+}
+h4 {
+    font-family: Calibri;
+    color: #fff;
+    text-align: center;
+}
+.main-cont {
+	margin: 0 auto;
+	border: 0px solid #fff;
+	background-color: transparent;
+	padding-top: 20px;
+	padding-left: 50px;
+	height: 850px;
+	width: 640px;
+}
+.container {
+	border: 1px solid #000000;
+	width: 295px;
+}
+.container1 {
+	border: 1px solid #000000;
+	width: 400px;
+	margin-bottom: 20px;
+}	
+.nav-container {
+    width: 640px;
+    margin: 0 auto;
+    background-color: red;
+}
+.nav-active {
+    color: #1A25FF;
+    border: 1px solid #fff;
+    width: 70px;
+    height: 30px;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    float: left;
+}
+.nav {
+    color: #353535;
+    border: 1px solid #000000;
+    width: 70px;
+    height: 30px;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    float: left;
+}
+.input-ans {
+    margin: 20px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000000;
+	color: red;
+	background: transparent;
+	font-size: 20px;
+	font-weight: bold;
+	width: 100px;
+	text-align: center;
+}
+.button-ans {
+	width: 100px;
+	height: 30px;
+	margin: 20px;
+	cursor: pointer;
+	background: transparent;
+	border: 1px dashed #000000;
+}
+.button-ans:hover {
+	border: 1px dotted #000000;
+}
+.input-que {
+	height: 30px;
+	padding-left: 10px;
+	border: 1px solid #000000;
+}
+</style>
+
+<script type="text/javascript">
+function calMatrix(n1,n2,n3,n4) {
+	var no1 = parseFloat(n1*n4);
+	var no2 = parseFloat(n2*n3);
+	matrix1.cal.value = no1 - no2;
+}
+function calTranspose(n1,n2,n3,n4) {
+    matrix.ta.value = parseFloat(n1);
+    matrix.tb.value = parseFloat(n3);
+    matrix.tc.value = parseFloat(n2);
+    matrix.td.value = parseFloat(n4);
+}
+function calAdjoint(n1,n2,n3,n4) {
+    matrix.ta.value = parseFloat(n4);
+    matrix.tb.value = parseFloat(-n2);
+    matrix.tc.value = parseFloat(-n3);
+    matrix.td.value = parseFloat(n1);
+}
+function calInverse(n1,n2,n3,n4) {
+	var no1 = parseFloat(n1*n4);
+	var no2 = parseFloat(n2*n3);
+	var det = no1 - no2;
+    matrix.ta.value = parseFloat(n4/(no1 - no2));
+    matrix.tb.value = parseFloat(-n2/(no1 - no2));
+    matrix.tc.value = parseFloat(-n3/(no1 - no2));
+    matrix.td.value = parseFloat(n1/(no1 - no2));
+}
+function calClear(n1,n2,n3,n4) {
+    matrix.ta.value = 0;
+    matrix.tb.value = 0;
+    matrix.tc.value = 0;
+    matrix.td.value = 0;
+    matrix1.a.value = 0;
+    matrix1.b.value = 0;
+    matrix1.c.value = 0;
+    matrix1.d.value = 0;
+    matrix1.cal.value = 0;
+}
+</script>
+</head>
+<body>
+<h1>Matrix Calculator (JavaScript)</h1>
+<h3>This plugin can calculate determinant, transpose, adjoint and inverse of any 2 cross 2 and 3 cross 3 matrix. This can be used in any educational blog or website. <br> You can contribute to this project on <a href="https://github.com/daxeel/Matrix-Calculator-JavaScript" target="_blank">GITHUB</a> if you found any bug or if you think that some feature should be added.</h3>
+<h4>All Rights Reserved under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT License</a>. <br>(C) <a href="https://github.com/daxeel" target="_blank">Daxeel Soni</a></h4>
+<hr />
+<div class="nav-container">
+	<div class="nav-active">2 cross 2</div>
+	<a href="3c3.html" class="nav">3 cross 3</a>
+</div>	
+<br><br>
+<div class="main-cont">
+<div class="container1">
+<form name="matrix1">
+<table border="0" cellspacing="20">
+	<tr>
+		<td><input type="text" name="a" value="0" class="input-que"></td>
+		<td><input type="text" name="b" value="0" class="input-que"></td>
+	</tr>	
+	<tr>
+		<td><input type="text" name="c" value="0" class="input-que"></td>
+		<td><input type="text" name="d" value="0" class="input-que"></td>
+	</tr>	
+	<tr>
+		<td><input type="button" value="Determinant" class="button-ans" onClick="calMatrix(a.value,b.value,c.value,d.value)"></td>
+
+		<td><input type="text" name="cal" value="0" class="input-ans" disabled></td>
+	</tr>	
+</table>
+</form>
+</div>
+<div class="container">
+<form name="matrix">
+	<table>
+	<tr>
+		<td><input type="text" name="ta" value="0" class="input-ans" disabled></td>
+		<td><input type="text" name="tb" value="0" class="input-ans" disabled></td>
+	</tr>	
+	<tr>
+		<td><input type="text" name="tc" value="0" class="input-ans" disabled></td>
+		<td><input type="text" name="td" value="0" class="input-ans" disabled></td>
+	</tr>	
+	<tr>
+		<td><input type="button" value="Transpose" class="button-ans" onClick="calTranspose(matrix1.a.value,matrix1.b.value,matrix1.c.value,matrix1.d.value)"></td>
+
+		<td><input type="button" value="Adjoint" class="button-ans" onClick="calAdjoint(matrix1.a.value,matrix1.b.value,matrix1.c.value,matrix1.d.value)"></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="Inverse" class="button-ans" onClick="calInverse(matrix1.a.value,matrix1.b.value,matrix1.c.value,matrix1.d.value)"></td>
+
+		<td><input type="button" value="Clear" class="button-ans" onClick="calClear(matrix1.a.value,matrix1.b.value,matrix1.c.value,matrix1.d.value)"></td>
+
+	</tr>	
+</table>
+</form>	
+</div>	
+</div>
+</table>	
+</form>	
+</body>
+</html>
